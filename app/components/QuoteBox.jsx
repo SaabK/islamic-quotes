@@ -7,6 +7,7 @@ import twitterIcon from '../../public/twitter.svg';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { toast } from 'react-toastify';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function QuoteBox({ randomQuote, generateRandomQuote }) {
 	const { quote, author } = randomQuote;
@@ -14,10 +15,9 @@ function QuoteBox({ randomQuote, generateRandomQuote }) {
 	const twitterIntentQuote = quote?.split(' ').join('%20');
 	const twitterIntentAuthor = author?.split(' ').join('%20');
 
-	const handleCopy = () => {
-		const textToCopy = `"${quote}" - ${author}`;
-		navigator.clipboard.writeText(textToCopy);
+	const textToCopy = `"${quote}" - ${author}`;
 
+	const handleCopy = () => {
 		toast.success('Copied to Clipboard', {
 			position: 'top-right',
 			autoClose: 3000,
@@ -31,7 +31,7 @@ function QuoteBox({ randomQuote, generateRandomQuote }) {
 	};
 
 	return (
-		<div className='bg-[#141c48] px-8 py-10  rounded-lg flex flex-col justify-between gap-5 w-[500px] break-words relative'>
+		<div className='bg-[#141c48] px-8 py-10  rounded-lg flex flex-col justify-between gap-5 w-[500px] break-words relative quote-box'>
 			<div>
 				<span>
 					<span className='text-[#ebebeb] text-lg'>
@@ -64,13 +64,16 @@ function QuoteBox({ randomQuote, generateRandomQuote }) {
 						classes='block w-fit'
 						onClick={generateRandomQuote}
 					/>
+
 					<button type='button' onClick={handleCopy}>
-						<Image
-							src={copyIcon}
-							alt='Copy to clipboard'
-							className='ml-4 cursor-pointer hover:w-6 transition-all'
-							width={20}
-						/>
+						<CopyToClipboard text={textToCopy}>
+							<Image
+								src={copyIcon}
+								alt='Copy to clipboard'
+								className='ml-4 cursor-pointer hover:w-6 transition-all'
+								width={20}
+							/>
+						</CopyToClipboard>
 					</button>
 				</div>
 				<a

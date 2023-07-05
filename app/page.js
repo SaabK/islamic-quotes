@@ -1,9 +1,14 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import QuoteBox from './components/QuoteBox';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 export default function Home() {
+	const router = useRouter();
+	const baseDomain = router.basePath || '';
+	const API_URL = baseDomain + '/api/quotes';
+
 	const quotes = useRef([]);
 	const [randomQuote, setRandomQuote] = useState({});
 
@@ -13,7 +18,7 @@ export default function Home() {
 
 	const fetchQuotes = useCallback(async () => {
 		try {
-			const res = await fetch(process.env.NEXT_PUBLIC_API_URL);
+			const res = await fetch(API_URL);
 
 			if (!res.ok) {
 				throw new Error(
