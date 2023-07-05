@@ -2,311 +2,637 @@ import { NextResponse } from 'next/server';
 
 const quotes = [
 	{
-		author: 'Ali Bin Naseer',
-		quote: 'You win by not quitting. You loose by not quitting',
-		category: 'motivation',
-	},
-	{
-		author: 'Sultan Mehmet II',
-		quote: "Even their dreams don't reach the places, where my power reaches",
-		category: 'power',
-	},
-	{
+		quote: 'Ignorance is the root and stem of all evil.',
 		author: 'Al-Farabi',
-		quote: 'Knowledge is the conformity of the object and the intellect.',
-		category: 'Philosophy',
+		category: '',
 	},
+
 	{
-		author: 'Ibn Sina',
-		quote: 'The true object of human knowledge is the universals.',
-		category: 'Philosophy',
-	},
-	{
-		author: 'Ibn Rushd',
-		quote:
-			'Ignorance leads to fear, fear leads to hatred, and hatred leads to violence. This is the equation.',
-		category: 'Wisdom',
-	},
-	{
-		author: 'Al-Ghazali',
-		quote: 'The heart is the seat of intelligence, not the brain.',
-		category: 'Philosophy',
-	},
-	{
-		author: 'Ibn Arabi',
-		quote:
-			'Do not attach yourself to any particular creed exclusively, so that you may disbelieve all the rest; otherwise you will lose much good, nay, you will fail to recognize the real truth of the matter.',
-		category: 'Wisdom',
-	},
-	{
-		author: 'Ibn Khaldun',
-		quote:
-			'In the beginning of the dynasty, great things are created. In the end, when the dynasty declines, small things are created.',
-		category: 'Wisdom',
-	},
-	{
-		author: 'Al-Kindi',
-		quote:
-			'No disease that can be treated by diet should be treated with any other means.',
-		category: 'Medicine',
-	},
-	{
-		author: 'Ibn Taymiyyah',
-		quote:
-			'Verily, I constantly renew my Islam until this very day, as up to now, I do not consider myself to have ever been a good Muslim.',
-		category: 'Self-Improvement',
-	},
-	{
-		author: 'Rumi',
-		quote:
-			'Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.',
-		category: 'Self-Improvement',
-	},
-	{
-		author: 'Ibn al-Qayyim',
-		quote:
-			'If you want to know the true nature of anything, you must first understand its properties and its position in the order of things.',
-		category: 'Philosophy',
-	},
-	{
+		quote: 'Happiness is attained by overcoming the flaws of the soul.',
 		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
 		quote:
-			'The best and most noble way to acquire knowledge is to seek it for the sake of knowledge itself.',
-		category: 'Motivation',
-	},
-
-	{
-		author: 'Ibn Sina',
-		quote:
-			'The world is divided into men who have wit and no religion, and men who have religion and no wit.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Rushd',
-		quote: 'Ignorance is the cause of all misunderstandings.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Al-Ghazali',
-		quote: 'The more knowledge you have, the greater humility you will have.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Arabi',
-		quote: 'To know yourself is to know your Lord.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Khaldun',
-		quote:
-			'Civilization begins with order, grows with liberty, and dies with chaos.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Taymiyyah',
-		quote:
-			'The tongue is like a lion. If you let it loose, it will wound someone.',
-		category: 'Self-Improvement',
-	},
-
-	{
-		author: 'Rumi',
-		quote: 'The wound is the place where the Light enters you.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Al-Kindi',
-		quote:
-			'True happiness is not found in the material possessions of this world, but in the contentment of the heart.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Qayyim al-Jawziyya',
-		quote: 'Patience is bitter, but its fruit is sweet.',
-		category: 'Motivation',
-	},
-
-	{
-		author: 'Ibn Hazm',
-		quote:
-			'Do not judge someone based on their appearance; judge them based on their character and actions.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn al-Jawzi',
-		quote: 'The best form of worship is to serve others selflessly.',
-		category: 'Wisdom',
-	},
-
-	{
+			'The perfect happiness of the individual is the same as the perfect happiness of the state.',
 		author: 'Al-Farabi',
-		quote: 'True happiness lies in virtue and the pursuit of knowledge.',
-		category: 'Wisdom',
+		category: '',
 	},
 
 	{
-		author: 'Ibn Sina',
-		quote: 'The first step to wisdom is silence, the second is listening.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Rushd',
-		quote:
-			'The ignorant person is the one who is not aware of his own ignorance.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Al-Ghazali',
-		quote: 'The heart is a divine instrument; purify it from all impurities.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Arabi',
-		quote: 'In the realm of love, silence is the most eloquent language.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Khaldun',
-		quote:
-			'People are united by their common humanity, not divided by their differences.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Taymiyyah',
-		quote:
-			'Do not belittle any act of kindness, for even a small gesture can have a profound impact.',
-		category: 'Self-Improvement',
-	},
-	{
+		quote: 'A ruler who lacks wisdom is no ruler at all.',
 		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote: 'The pursuit of knowledge is the highest form of worship.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote: 'Reason is the light that illuminates the path to truth.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote: 'Justice is the foundation upon which a virtuous society is built.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote: 'The true leader is one who leads by example.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
 		quote:
-			'The true ruler is not the one who conquers nations, but the one who conquers himself.',
-		category: 'Wisdom',
+			'The ultimate goal of human existence is the attainment of true happiness.',
+		author: 'Al-Farabi',
+		category: '',
 	},
 
 	{
-		author: 'Ibn Sina ',
-		quote: 'The greatest happiness is to know the source of unhappiness.',
-		category: 'Wisdom',
+		quote: 'The wise seek knowledge, while the ignorant remain in darkness.',
+		author: 'Al-Farabi',
+		category: '',
 	},
 
 	{
-		author: 'Ibn Rushd',
-		quote: 'The purpose of knowledge is to illuminate the path of truth.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Al-Ghazali',
 		quote:
-			'True knowledge is not merely memorizing facts, but understanding their meanings.',
-		category: 'Wisdom',
+			'The best way to lead is through moral guidance and virtuous actions.',
+		author: 'Al-Farabi',
+		category: '',
 	},
 
 	{
+		quote: 'Wisdom is the compass that guides the soul towards enlightenment.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote: 'The harmony of the soul is the key to inner peace.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote: 'Knowledge is a treasure that can never be taken away.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote:
+			'True education is not just the accumulation of facts, but the development of character.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote: 'The pursuit of virtue leads to a flourishing society.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote:
+			'True happiness is found in the harmony of the body, mind, and soul.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote:
+			'A just society is one where each individual fulfills their role with excellence.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote:
+			'The path to enlightenment requires self-discipline and self-reflection.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote:
+			'The intellect is the guide that leads us to truth and understanding.',
+		author: 'Al-Farabi',
+		category: '',
+	},
+
+	{
+		quote:
+			'Do not seek to follow in the footsteps of the wise. Seek what they sought.',
 		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'Love is the remedy, for love is the divine medicine.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'The one who truly knows themselves knows their Lord.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
 		quote:
-			'The universe is a book, and those who do not travel read only one page.',
-		category: 'Wisdom',
+			'The heart that is alive is constantly in a state of spiritual ascension.',
+		author: 'Ibn Arabi',
+		category: '',
 	},
 
 	{
-		author: 'Ibn Khaldun',
-		quote: 'True wealth lies not in possessions, but in knowledge and wisdom.',
-		category: 'Wisdom',
+		quote: 'In every breath, take a step closer to your true essence.',
+		author: 'Ibn Arabi',
+		category: '',
 	},
 
 	{
-		author: 'Ibn Taymiyyah',
-		quote:
-			'The heart becomes restless until it finds its peace in the remembrance of God.',
-		category: 'Wisdom',
+		quote: 'The world is a book, and those who do not travel read only a page.',
+		author: 'Ibn Arabi',
+		category: '',
 	},
 
 	{
-		author: 'Rumi',
 		quote:
 			'Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Hazm',
-		quote:
-			'The best way to find yourself is to lose yourself in the service of others.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn al-Jawzi',
-		quote:
-			'The strongest person is not the one who can overpower others, but the one who can control their own anger.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Al-Farabi',
-		quote:
-			'The most beautiful music is the one that echoes the melodies of the soul.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Ibn Sina',
-		quote: 'He who knows himself is truly wise.',
-		category: 'Self-Improvement',
-	},
-
-	{
-		author: 'Ibn Rushd',
-		quote: 'The noblest pleasure is the joy of understanding.',
-		category: 'Wisdom',
-	},
-
-	{
-		author: 'Al-Ghazali',
-		quote:
-			'Do not grieve over the past, for it is gone. Do not worry about the future, for it is yet to come. Live in the present moment and make it beautiful.',
-		category: 'Wisdom',
-	},
-
-	{
 		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'The greatest journey is the one within yourself.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'The more you know yourself, the closer you are to God.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
 		quote:
-			'The path to enlightenment is not a journey of miles; it is a journey of the heart.',
-		category: 'Motivation',
+			'Be like a tree, giving shade to others while remaining rooted in your own being.',
+		author: 'Ibn Arabi',
+		category: '',
 	},
 
 	{
-		author: 'Ibn Khaldun',
+		quote: 'The secret of love is seeking to understand, not to be understood.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'The light of God is within you, waiting to be unveiled.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
 		quote:
-			'The most successful people are not the ones who never fail, but the ones who learn and grow from their failures.',
-		category: 'Motivation',
+			'The essence of all religions is one – the pursuit of truth and unity.',
+		author: 'Ibn Arabi',
+		category: '',
 	},
 
 	{
-		author: 'Ibn Taymiyyah',
-		quote: 'The true value of wealth is in how it is used to benefit others.',
-		category: 'Wisdom',
+		quote: 'Your true nature is the divine spark within you.',
+		author: 'Ibn Arabi',
+		category: '',
 	},
 
 	{
-		author: 'Rumi',
-		quote: 'You were born with wings, why prefer to crawl through life?',
-		category: 'Motivation',
+		quote: 'Seek knowledge from the cradle to the grave.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'The Sufi is a mirror that reflects the divine attributes.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'The path to God is through love and surrender.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote:
+			'Silence is the language of God; everything else is a poor translation.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'Be in this world as if you were a stranger or a traveler.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'In every moment, God is unveiling Himself to you.',
+		author: 'Ibn Arabi',
+		category: '',
+	},
+
+	{
+		quote: 'Ignorance leads to fear, knowledge to courage.',
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote: 'The aim of philosophy is to attain truth and knowledge.',
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote: 'Doubt is the beginning of wisdom.',
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote: "The more you know, the more you realize how much you don't know.",
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote: 'Reason is the guide that leads us to truth and understanding.',
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote: 'The pursuit of knowledge is the path to enlightenment.',
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote:
+			'There is no contradiction between faith and reason; they are two paths that lead to the same truth.',
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote:
+			'True understanding comes from critical thinking and rational inquiry.',
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote: 'Education is the key to progress and the liberation of the mind.',
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote: 'The intellect is the noblest faculty of the human mind.',
+		author: 'Ibn Rushd',
+		category: '',
+	},
+
+	{
+		quote:
+			'The world is divided into men who have wit and no religion, and men who have religion and no wit.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote:
+			'Knowledge which is acquired under compulsion obtains no hold on the mind.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote:
+			'The world is a prison for the believer and a paradise for the unbeliever.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote:
+			'The first step in the acquisition of wisdom is silence, the second listening, the third memory, the fourth practice, the fifth teaching others.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote:
+			'Knowledge of the soul would unfailingly make us melancholy if the pleasures of expression did not keep us alert and of a lively intelligence.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote: 'An ignorant doctor is the aide-de-camp of death.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote:
+			'He who is ignorant of the nature of things has no knowledge at all.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote: 'Medicine is a science of uncertainty and an art of probability.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote: 'The science of governing is indispensable for all well-being.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote:
+			'Truth does not become more true by virtue of the fact that the entire world agrees with it, nor less so even if the whole world disagrees with it.',
+		author: 'Ibn Sina',
+		category: '',
+	},
+
+	{
+		quote: 'Seek knowledge even if it is in China.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote: 'The more knowledge one acquires, the more humble one becomes.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote: 'The intellect is the noblest faculty of the human mind.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote: 'Patience is the key to unlocking the doors of success.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote:
+			'It is better to have a thousand enemies outside the tent than one inside.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote:
+			'The beauty of the heart is more valuable than the beauty of the face.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote: 'Doubt is the beginning of wisdom.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote: 'True knowledge is knowing oneself.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote: 'The most powerful weapon is patience.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote: 'Education is the key to enlightenment.',
+		author: 'Al-Kindi',
+		category: '',
+	},
+
+	{
+		quote:
+			'The duty of the man who investigates the writings of scientists, if learning the truth is his goal, is to make himself an enemy of all that he reads.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote: 'The road to knowledge begins with the turn of the page.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote:
+			'The true scientist is not the one who can provide answers, but the one who knows how to ask the right questions.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote: 'Knowledge is the key that unlocks the doors of understanding.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote: 'The pursuit of truth requires courage, patience, and an open mind.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote: 'Curiosity is the fuel that drives the engine of discovery.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote: 'Every failure is a stepping stone towards success.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote:
+			'Do not be afraid to challenge the established norms; that is where progress lies.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote:
+			'True knowledge is not the memorization of facts, but the understanding of principles.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote:
+			'Question everything, for it is through questioning that we uncover the truth.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote: 'Wisdom is the fruit of experience and reflection.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote:
+			'In the pursuit of knowledge, there is no destination; it is a lifelong journey.',
+		author: 'Al-Hasan Ibn al-Haytham',
+		category: '',
+	},
+
+	{
+		quote: "The beginning of guidance is the recognition of one's own faults.",
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'Knowledge that is not acted upon is useless.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'The heart is the sanctuary where God is found.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'Patience is the key to unlocking the doors of success.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'The greatest victory is the victory over oneself.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote:
+			'True knowledge is not the accumulation of information, but the transformation of character.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'The purpose of knowledge is to illuminate the path to God.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'Seek knowledge with an open mind and a humble heart.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'The key to success is to purify the heart from impurities.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'The true measure of wealth is contentment of the heart.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote:
+			'True wealth lies not in material possessions, but in the richness of the soul.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'The greatest act of worship is to serve others.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'Happiness is found in the remembrance of God.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'The journey of a thousand miles begins with a single step.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote: 'The only lasting beauty is the beauty of the heart.',
+		author: 'Al-Ghazali',
+		category: '',
+	},
+
+	{
+		quote:
+			'The strong is not the one who overcomes the people by his strength, but the strong is the one who controls himself while in anger.',
+		author: 'Muhammad (ﷺ)',
+		category: '',
+	},
+
+	{
+		quote: 'The worldly life is a prison for the believer.',
+		author: 'Muhammad (ﷺ)',
+		category: '',
+	},
+
+	{
+		quote: 'Kindness is a mark of faith, and whoever is not kind has no faith.',
+		author: 'Muhammad (ﷺ)',
+		category: '',
 	},
 ];
 

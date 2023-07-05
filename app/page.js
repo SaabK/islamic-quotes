@@ -30,15 +30,11 @@ export default function Home() {
 		}
 	}, []);
 
-	console.log('After useEffect(): ', quotes.current);
-
 	const generateRandomQuote = () => {
 		const randomIndex = Math.floor(Math.random() * quotes.current.length);
 		const selectedQuote = quotes.current[randomIndex];
 		setRandomQuote(selectedQuote);
 	};
-
-	console.log('Random Quotes: ', randomQuote);
 
 	return (
 		<main className='container 2xl:px-20 mx-auto'>

@@ -11,10 +11,12 @@ import { toast } from 'react-toastify';
 function QuoteBox({ randomQuote, generateRandomQuote }) {
 	const { quote, author } = randomQuote;
 
+	const twitterIntentQuote = quote?.split(' ').join('%20');
+	const twitterIntentAuthor = author?.split(' ').join('%20');
+
 	const handleCopy = () => {
 		const textToCopy = `"${quote}" - ${author}`;
 		navigator.clipboard.writeText(textToCopy);
-		console.log(textToCopy);
 
 		toast.success('Copied to Clipboard', {
 			position: 'top-right',
@@ -71,7 +73,9 @@ function QuoteBox({ randomQuote, generateRandomQuote }) {
 						/>
 					</button>
 				</div>
-				<a href='https://www.twitter.com/' target='_blank'>
+				<a
+					href={`http://twitter.com/intent/tweet?text="${twitterIntentQuote}"%20-%20${twitterIntentAuthor}%20@AliBinTweets`}
+					target='_blank'>
 					<Image
 						src={twitterIcon}
 						alt='post on your twitter'
