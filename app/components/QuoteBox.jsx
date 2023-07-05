@@ -6,6 +6,7 @@ import copyIcon from '../../public/copy.svg';
 import twitterIcon from '../../public/twitter.svg';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { toast } from 'react-toastify';
 
 function QuoteBox({ randomQuote, generateRandomQuote }) {
 	const { quote, author } = randomQuote;
@@ -14,6 +15,17 @@ function QuoteBox({ randomQuote, generateRandomQuote }) {
 		const textToCopy = `"${quote}" - ${author}`;
 		navigator.clipboard.writeText(textToCopy);
 		console.log(textToCopy);
+
+		toast.success('Copied to Clipboard', {
+			position: 'top-right',
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: 'colored',
+		});
 	};
 
 	return (
