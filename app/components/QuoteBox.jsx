@@ -4,14 +4,44 @@ import Image from 'next/image';
 import { PrimaryButton } from './Buttons';
 import copyIcon from '../../public/copy.svg';
 import twitterIcon from '../../public/twitter.svg';
-import Quote from './Quote';
-import leftQuote from '../../public/quotes-left.svg';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function QuoteBox({ randomQuote, generateRandomQuote }) {
+	const { quote, author } = randomQuote;
+
+	const handleCopy = () => {
+		const textToCopy = `"${quote}" - ${author}`;
+		navigator.clipboard.writeText(textToCopy);
+		console.log(textToCopy);
+	};
+
 	return (
-		<div className='bg-[#141c48] px-8 py-10 pt-16 rounded-lg flex flex-col justify-between gap-5 w-[500px] break-words relative'>
+		<div className='bg-[#141c48] px-8 py-10  rounded-lg flex flex-col justify-between gap-5 w-[500px] break-words relative'>
 			<div>
-				<Quote quote={randomQuote} className='' />
+				<span>
+					<span className='text-[#ebebeb] text-lg'>
+						{quote || (
+							<Skeleton
+								count={2}
+								baseColor='#00042e'
+								highlightColor='#0d1242'
+								height={27}
+							/>
+						)}
+					</span>
+				</span>
+				<span className='block w-full text-right text-2xl font-bold mt-5 text-[#eeeeee]'>
+					-{' '}
+					{author || (
+						<Skeleton
+							baseColor='#00042e'
+							highlightColor='#0d1242'
+							width='45%'
+							height={27}
+						/>
+					)}
+				</span>
 			</div>
 			<div className='flex justify-between items-center'>
 				<div className='flex'>
@@ -20,8 +50,7 @@ function QuoteBox({ randomQuote, generateRandomQuote }) {
 						classes='block w-fit'
 						onClick={generateRandomQuote}
 					/>
-					{/* //TODO: make a copy to clipboard button */}
-					<button>
+					<button type='button' onClick={handleCopy}>
 						<Image
 							src={copyIcon}
 							alt='Copy to clipboard'
